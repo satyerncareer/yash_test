@@ -8,17 +8,20 @@
 
 import UIKit
 protocol PostViewModelType {
-    func configureDetails(titleLabel: UILabel, descriptionView: UITextView)
+    func configureDetails(titleLabel: UILabel, descriptionView: UITextView, nameLabel: UILabel)
 }
 class PostViewModel: PostViewModelType {
     var titleObject: Title
-    
-    init(titleObject: Title) {
+    var name: String
+    init(titleObject: Title, userName: String) {
         self.titleObject = titleObject
+        self.name = userName
     }
     
-    func configureDetails(titleLabel: UILabel, descriptionView: UITextView){
+    func configureDetails(titleLabel: UILabel, descriptionView: UITextView, nameLabel: UILabel){
         titleLabel.text = titleObject.title
         descriptionView.text = titleObject.body
+        nameLabel.text = name
+        
     }
 }

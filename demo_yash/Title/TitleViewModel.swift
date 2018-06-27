@@ -15,9 +15,11 @@ protocol TitleViewModelType {
 }
 class TitleViewModel: TitleViewModelType {
     var userId: Int
+    var userName: String
     var titleArray:[Title] = []
-    init(userId: Int) {
+    init(userId: Int, userName: String) {
         self.userId = userId
+        self.userName = userName
     }
     
     func getTitle(handler:@escaping() -> Void){
@@ -52,7 +54,7 @@ class TitleViewModel: TitleViewModelType {
     func pushToDetail(at row: Int, source: UINavigationController?, to viewControllerIdentity: String) {
         let titleObj = titleArray[row]
         let vc = kStoryBoardMain.instantiateViewController(withIdentifier: viewControllerIdentity) as! PostDetailViewController
-        vc.postViewModel = PostViewModel(titleObject: titleObj)
+        vc.postViewModel = PostViewModel(titleObject: titleObj, userName: userName)
         source?.pushViewController(vc, animated: true)
     }
     

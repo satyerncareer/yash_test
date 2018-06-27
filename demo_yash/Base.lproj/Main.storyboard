@@ -86,7 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jW9-uI-akU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentity" rowHeight="74" id="iB9-CT-AQd" customClass="UserCell" customModule="demo_yash" customModuleProvider="target">
@@ -129,24 +129,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="ziE-9y-PUp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Kqe-vA-lb3"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="3Aq-6p-VxN"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jW9-uI-akU" firstAttribute="top" secondItem="v1d-el-CAG" secondAttribute="top" id="Icg-uD-ec0"/>
-                            <constraint firstItem="jW9-uI-akU" firstAttribute="trailing" secondItem="Msb-ry-pvB" secondAttribute="trailing" id="aqd-Rp-IC9"/>
-                            <constraint firstItem="jW9-uI-akU" firstAttribute="leading" secondItem="Msb-ry-pvB" secondAttribute="leading" id="edE-zg-tLF"/>
-                            <constraint firstItem="jW9-uI-akU" firstAttribute="bottom" secondItem="Msb-ry-pvB" secondAttribute="bottom" id="mGp-8O-fpB"/>
+                            <constraint firstItem="ziE-9y-PUp" firstAttribute="leading" secondItem="Msb-ry-pvB" secondAttribute="leading" id="0iv-em-Zay"/>
+                            <constraint firstItem="ziE-9y-PUp" firstAttribute="top" secondItem="Msb-ry-pvB" secondAttribute="top" id="3w7-uB-zZB"/>
+                            <constraint firstItem="jW9-uI-akU" firstAttribute="bottom" secondItem="Msb-ry-pvB" secondAttribute="bottom" id="e11-Wr-K9s"/>
+                            <constraint firstItem="jW9-uI-akU" firstAttribute="leading" secondItem="Msb-ry-pvB" secondAttribute="leading" id="fdO-Qz-aHg"/>
+                            <constraint firstItem="ziE-9y-PUp" firstAttribute="trailing" secondItem="Msb-ry-pvB" secondAttribute="trailing" id="qyR-uB-CqI"/>
+                            <constraint firstItem="jW9-uI-akU" firstAttribute="trailing" secondItem="Msb-ry-pvB" secondAttribute="trailing" id="vXO-N4-A2P"/>
+                            <constraint firstItem="jW9-uI-akU" firstAttribute="top" secondItem="ziE-9y-PUp" secondAttribute="bottom" id="wEn-2n-3HK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Msb-ry-pvB"/>
                     </view>
                     <navigationItem key="navigationItem" id="aNU-bE-WvP"/>
                     <connections>
+                        <outlet property="searchBar" destination="ziE-9y-PUp" id="xvr-Wl-tik"/>
                         <outlet property="tableVieqw" destination="jW9-uI-akU" id="UdT-L4-FCa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8P5-T4-aXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2332" y="233"/>
+            <point key="canvasLocation" x="2332" y="232.53373313343329"/>
         </scene>
         <!--Title View Controller-->
         <scene sceneID="I4A-HV-ttC">
@@ -229,21 +245,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-z5-7CQ">
+                                <rect key="frame" x="16" y="21" width="331" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="xCx-Wc-HLb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="n3l-51-Tpo" firstAttribute="top" secondItem="VJy-z5-7CQ" secondAttribute="bottom" constant="16" id="3rf-ps-5xh"/>
                             <constraint firstItem="rvr-AW-dua" firstAttribute="trailing" secondItem="n3l-51-Tpo" secondAttribute="trailing" constant="16" id="SOh-cc-89i"/>
                             <constraint firstItem="rvr-AW-dua" firstAttribute="trailing" secondItem="CLX-Dj-4mL" secondAttribute="trailing" constant="16" id="TBz-CH-j80"/>
                             <constraint firstItem="n3l-51-Tpo" firstAttribute="leading" secondItem="rvr-AW-dua" secondAttribute="leading" constant="16" id="UNo-e7-hZt"/>
                             <constraint firstItem="CLX-Dj-4mL" firstAttribute="leading" secondItem="rvr-AW-dua" secondAttribute="leading" constant="16" id="XCa-zT-Nv1"/>
+                            <constraint firstItem="VJy-z5-7CQ" firstAttribute="leading" secondItem="rvr-AW-dua" secondAttribute="leading" constant="16" id="eOD-6v-arf"/>
                             <constraint firstItem="rvr-AW-dua" firstAttribute="bottom" secondItem="CLX-Dj-4mL" secondAttribute="bottom" constant="20" id="g9d-Mg-vws"/>
-                            <constraint firstItem="n3l-51-Tpo" firstAttribute="top" secondItem="rvr-AW-dua" secondAttribute="top" constant="38" id="hU0-3e-9Bd"/>
+                            <constraint firstItem="VJy-z5-7CQ" firstAttribute="top" secondItem="rvr-AW-dua" secondAttribute="top" constant="1" id="i3k-aE-rip"/>
+                            <constraint firstItem="rvr-AW-dua" firstAttribute="trailing" secondItem="VJy-z5-7CQ" secondAttribute="trailing" constant="28" id="rfA-f6-I20"/>
                             <constraint firstItem="CLX-Dj-4mL" firstAttribute="top" secondItem="n3l-51-Tpo" secondAttribute="bottom" constant="22" id="xJ9-mT-5gg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rvr-AW-dua"/>
                     </view>
                     <connections>
                         <outlet property="descriptionView" destination="CLX-Dj-4mL" id="3lm-fk-8W8"/>
+                        <outlet property="nameLabel" destination="VJy-z5-7CQ" id="eAv-A6-kfi"/>
                         <outlet property="titleLabel" destination="n3l-51-Tpo" id="VwB-b7-PrO"/>
                     </connections>
                 </viewController>

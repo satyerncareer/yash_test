@@ -11,11 +11,12 @@ import UIKit
 class PostDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionView: UITextView!
+    @IBOutlet weak var nameLabel: UILabel!
     var postViewModel: PostViewModelType!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        postViewModel.configureDetails(titleLabel: titleLabel, descriptionView: descriptionView)
+        postViewModel.configureDetails(titleLabel: titleLabel, descriptionView: descriptionView, nameLabel: nameLabel)
     }
 
     override func didReceiveMemoryWarning() {

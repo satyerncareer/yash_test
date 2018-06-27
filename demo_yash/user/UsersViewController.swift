@@ -11,10 +11,12 @@ import UIKit
 class UsersViewController: BaseViewController {
     var userModel: UserViewModelType!
     @IBOutlet weak var tableVieqw: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         userModel.getAllUsers {
             self.configurateTableview()
+            self.configureSearchBar()
         }
     }
 
@@ -32,6 +34,10 @@ class UsersViewController: BaseViewController {
         tableVieqw.rowHeight = 74
         tableVieqw.estimatedRowHeight = 74
     }
+    func configureSearchBar(){
+        searchBar.delegate = self
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
 }
 
 extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
@@ -46,5 +52,15 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         userModel.showTitle(at: indexPath.row, source: self.navigationController, to: kViewControllerIdentities.titleVC.value)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+extension UsersViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        userModel.searchResult(searchText: "")
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        userModel.searchResult(searchText: searchText)
+        configurateTableview()
     }
 }
